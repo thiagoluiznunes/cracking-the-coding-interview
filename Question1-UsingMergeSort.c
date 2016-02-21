@@ -1,11 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 /*
 Ex. 1: Write an algorithm that brings all nonzero elements to the left of the array and returns the number of nonzero elements:
 Example input: [ 1, 0, 2, 0, 0, 3, 4]
 Ouput: 4
 [ 1, 4, 2, 3, 0, 0, 0 ]
+
+Use the Merge Sort algorithm to sort inverted Array
 */
 
 void mergeSort(int* vetor, int posicaoInicio, int posicaoFim){
@@ -27,26 +29,26 @@ void mergeSort(int* vetor, int posicaoInicio, int posicaoFim){
 		
 		
 		while(i < metadeTam + 1 || j  < posicaoFim + 1) {
-	        if (i == metadeTam + 1 ) { // i passou do final da primeira metade, pegar v[j]
+	        if (i == metadeTam + 1 ) { 
 	            vetorTemp[k] = vetor[j];
 	            j++;
 	            k++;
 	        } 
 	        else {
-	            if (j == posicaoFim + 1) { // j passou do final da segunda metade, pegar v[i]
+	            if (j == posicaoFim + 1) { 
 	                vetorTemp[k] = vetor[i];
 	                i++;
 	                k++;
 	            } 
 	            else {
 	                if (vetor[i] < vetor[j]) { 
-	                    vetorTemp[k] = vetor[j];
-	                    j++;
-	                    k++;
-	                }
-	                else { 
 	                    vetorTemp[k] = vetor[i];
 	                    i++;
+	                    k++;
+	                } 
+	                else { 
+	                    vetorTemp[k] = vetor[j];
+	                    j++;
 	                    k++;
 	                }
 	            }
@@ -58,42 +60,38 @@ void mergeSort(int* vetor, int posicaoInicio, int posicaoFim){
     	free(vetorTemp);
 	}
 	
-	void print(int* ar, int tam){
+	void printArray(int *ar, int tam){
+		int x = 0;
 		int i = 0;
+		int noZeros = 0;
+		int numberZeros = 0;
 		
-		printf("\n");
-		
-		for(i = 0; i < tam; ++i){
-			printf("%d%s", ar[i], (tam != i ? " " : ""));
-		}
-	}
-	
-	void printNoZero(int* ar, int tam){
-		int i = 0;
-		int number = 0;
+		printf("Array ordenado: ");
 		for(i; i<tam; i++){
-			if(ar[i] != 0){
-				number++;
+			printf("%d ", ar[i]);
+		}
+		printf("\n");
+		for(x; x<tam; x++){
+			if(ar[x] != 0){
+				printf("%d ", ar[x]);
+				noZeros++;
+			}
+			else {
+				numberZeros++;
 			}
 		}
-		printf("\nNumber of NonZero: %d", number);
+		printf("\nNumeros nao zeros: %d", noZeros);
+		printf("\nNumeros de zeros: %d", numberZeros);
 	}
+	
 int main(void){
 	
 	int array[10] = {9,5,4,0,4,0,6,7,0,2};
 	int *ptr;
 	
-	ptr = array;
-	print(ptr, 10);
+	ptr = &array;
 	mergeSort(ptr, 0, 10-1);
-	print(ptr, 10);
-	printNoZero(ptr, 10);
+	printArray(ptr, 10);
 	
 	return 0;
 }
-
-
-
-
-
-
