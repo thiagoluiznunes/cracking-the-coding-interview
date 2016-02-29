@@ -1,63 +1,51 @@
-/*
-[Google] Give you an array which has n integers,it 
-has both positive and negative integers. Now you 
-need sort this array in a special way.After that,
-the negative integers should in the front,and the
- positive integers should in the back.
-Also the relative position should not be changed.
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 1001;
 
 typedef struct {
-	int TAM;
 	int arrayPOS[10];
 	int arrayNEG[10];
 	int numbPOS;
 	int numbNEG;
 }tLista;
 
-void ordenaLista(tLista lista){
+void ordenaLista(tLista *list){
 	int i, x;
 	
 	printf("\n");
 	
-	for(i=0; i<=lista.numbPOS; i++){
-		printf("%d ", lista.arrayPOS[i]);
+	for(i=0; i<list->numbNEG; i++){
+		printf("%d ", list->arrayNEG[i]);
 	}
-	for(x=0; i<=lista.numbNEG; i++){
-		printf("%d ", lista.arrayNEG[i]);
+	for(x=0; x<list->numbPOS; x++){
+		printf("%d ", list->arrayPOS[x]);
 	}
 	
 	printf("\n");
 }
 
-int main(void) {
+int main(void){
+	
+	printf("Hello word\n");
 	
 	int array[] = {0,1,2,-2,6,2,-2,3,0,-1};
-	int i;
+	int i, z = 0, w = 0;
 	
 	tLista *lista = malloc(sizeof(tLista));
-	lista->TAM = sizeof(array)/4;
-	printf("%d\n", lista->TAM);
 	
-	/*
-	for(i=0; i<=sizeof(array); i++){
+	for(i=0; i<10; i++){
 		if(array[i] < 0){
-			lista->arrayNEG[i] = array[i];
+			lista->arrayNEG[z] = array[i];
+			z++;
 			lista->numbNEG++;
 		}
 		else{
-			lista->arrayPOS[i] = array[i];
+			lista->arrayPOS[w] = array[i];
+			w++;
 			lista->numbPOS++;
 		}
-	}*/
-	printf("Aqui estou\n");
-	//ordenaLista(lista);
+	}
 	
-	system("pause");
+	ordenaLista(lista);
 	
 	return 0;
 }
