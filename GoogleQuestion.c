@@ -14,13 +14,13 @@ void ordenaLista(tLista list){
 	
 	printf("\n");
 	
-	for(i=0; i<list.numbNEG; i++){
-		printf("%d ", list.arrayNEG[i]);
-	}
+	
 	for(x=0; x<list.numbPOS; x++){
 		printf("%d ", list.arrayPOS[x]);
 	}
-	
+	for(i=0; i<list.numbNEG; i++){
+		printf("%d ", list.arrayNEG[i]);
+	}
 	printf("\n");
 }
 
