@@ -13,8 +13,17 @@ Sample Output: print error "LIST IS OF LESSER SIZE";
 
 
 
-int mai(void){
+int main(void){
 	
-	system("pause");
+	tLista lista;
+
+	createList(&lista);
+
+	int array[] = {1,2,3,4,5,6,7,8};
+
+	for(i=0; i<sizeof(array)/4; i++){
+		int x = insertElement(lista, i, array[i]);
+	}
+
 	return 0;
 }

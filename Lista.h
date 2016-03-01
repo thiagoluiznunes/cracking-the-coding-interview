@@ -1,11 +1,11 @@
 
-typedef struct {
+typedef struct no{
 	int valor;
-	tNo *prox;
+	struct no *prox;
 }tNo;
 
 typedef struct {
-	tNo *cabeca;
+	struct no *cabeca;
 	int tamanho; 
 }tLista;
 
@@ -13,6 +13,7 @@ void createList(tLista *lista){
 	lista->cabeca = NULL;
 	lista->tamanho = 0;
 }
+
 
 int voidList(tLista lista){
 	if(lista.tamanho == 0){
@@ -40,11 +41,12 @@ int getElement(tLista lista, int positon, int *valor){
 	return 1;
 }
 
+
 int insertVoidList(tLista *lista, int valor){
 	tNo *newNode;
 	newNode = malloc(sizeof(tNo));
 	
-	if(node == NULL){return 0;}
+	if(newNode == NULL){return 0;}
 	
 	newNode->valor = valor;
 	newNode->prox = NULL;
@@ -56,12 +58,13 @@ int insertVoidList(tLista *lista, int valor){
 }
 
 int insertBeginList(tLista *lista, int valor){
+	//printf("Dentro beginlist");
 	tNo *newNode;
 	newNode = malloc(sizeof(tNo));
 	
 	if(newNode == NULL){return 0;}
 	
-	newNode-valor = valor;
+	newNode->valor = valor;
 	newNode->prox = lista->cabeca;
 	
 	lista->cabeca = newNode;
@@ -71,6 +74,7 @@ int insertBeginList(tLista *lista, int valor){
 }
 
 int insertEndList(tLista *lista, int valor){
+	//printf("Opa\n");
 	tNo *newNode;
 	newNode = malloc(sizeof(tNo));
 	
@@ -90,6 +94,7 @@ int insertEndList(tLista *lista, int valor){
 }
 
 int insertMidList(tLista *lista, int position, int valor){
+	//printf("Hello\n");
 	tNo *newNode; 
 	tNo *aux = lista->cabeca;
 	int n = 1;
@@ -112,12 +117,13 @@ int insertMidList(tLista *lista, int position, int valor){
 	return 1;
 }
 
-void insertElement(tLista *lista, int position, int valor){
-	
+int insertElement(tLista *lista, int position, int valor){
+
 	tNo *newNode;
 	int aux, tam = lista->tamanho;
-	
-	if(voidList(lista)){
+	int vazia = voidList(*lista);
+
+	if(vazia){
 		
 		if(position != 1){return 0;}
 		aux = insertVoidList(lista, valor);
@@ -137,11 +143,25 @@ void insertElement(tLista *lista, int position, int valor){
 	}
 }
 
+
 void changePosition(tLista *lista, int position){
 	tNo *aux1 = lista->cabeca;
 	tNo *aux2;
-	
-	while()
+	int tam = 0;
+
+	while((aux1 != NULL) && (tam < position)){
+		aux1 = aux1->prox;
+		tam++;
+	}
+	aux2 = aux1->prox; 
+	while((aux2 != NULL) && ){
+		
+		aux2 = aux2->prox;
+		
+		if((aux2->valor == (lista->tam - position))){
+
+		}
+	}
 }
 
 
