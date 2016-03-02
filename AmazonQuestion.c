@@ -20,10 +20,28 @@ int main(void){
 	createList(&lista);
 
 	int array[] = {1,2,3,4,5,6,7,8};
-
+	int i, x = 0;
 	for(i=0; i<sizeof(array)/4; i++){
-		int x = insertElement(lista, i, array[i]);
+		x = insertElement(&lista, i+1, array[i]);
 	}
 
+	printList(&lista);
+	changePosition(&lista, 2);
+	printList(&lista);
+	changePosition(&lista, 2);
+	printList(&lista);
+	/*changePosition(&lista, 3);
+	printList(&lista);
+	changePosition(&lista, 3);
+	printList(&lista);
+	changePosition(&lista, 4);
+	printList(&lista);
+	changePosition(&lista, 4);
+	printList(&lista);
+	changePosition(&lista, 5);
+	printList(&lista);
+	changePosition(&lista, 5);
+	printList(&lista);
+	*/
 	return 0;
 }

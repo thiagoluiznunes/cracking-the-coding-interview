@@ -24,8 +24,7 @@ int voidList(tLista lista){
 	}
 }
 
-int getElement(tLista lista, int positon, int *valor){
-	
+int getElement(tLista lista, int position, int *valor){
 	tNo *node = lista.cabeca;
 	int n = 1;
 	
@@ -149,21 +148,33 @@ void changePosition(tLista *lista, int position){
 	tNo *aux2;
 	int tam = 0;
 
-	while((aux1 != NULL) && (tam < position)){
+	while((aux1 != NULL) && (tam < position-1)){
 		aux1 = aux1->prox;
 		tam++;
 	}
-	aux2 = aux1->prox; 
-	while((aux2 != NULL) && ){
-		
-		aux2 = aux2->prox;
-		
-		if((aux2->valor == (lista->tam - position))){
 
+	aux2 = lista->cabeca;
+	while(true){
+		if(aux2->valor != (lista->tamanho+1 - position)){
+			int dado = aux2->valor;
+			aux2->valor = aux1->valor;
+			aux1->valor = dado;
+			break;
 		}
-	}
+		aux2 = aux2->prox;
+	}	
 }
 
+void printList(tLista *lista){
+	tNo *aux = lista->cabeca;
+	int i;
+	
+	for(i=0; i<lista->tamanho; i++){
+		printf("%d ", aux->valor);
+		aux = aux->prox;
+	}
+	printf("\n");
+}
 
 
 
