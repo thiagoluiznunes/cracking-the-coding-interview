@@ -30,7 +30,7 @@ int main(void){
 	printList(&lista);
 	changePosition(&lista, 2);
 	printList(&lista);
-	/*changePosition(&lista, 3);
+	changePosition(&lista, 3);
 	printList(&lista);
 	changePosition(&lista, 3);
 	printList(&lista);
@@ -42,6 +42,6 @@ int main(void){
 	printList(&lista);
 	changePosition(&lista, 5);
 	printList(&lista);
-	*/
+	
 	return 0;
 }

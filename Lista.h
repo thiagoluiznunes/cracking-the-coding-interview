@@ -154,14 +154,17 @@ void changePosition(tLista *lista, int position){
 	}
 
 	aux2 = lista->cabeca;
-	while(true){
-		if(aux2->valor != (lista->tamanho+1 - position)){
+	int i = 0;
+	while(aux2 != NULL){
+
+		if(i == lista->tamanho - position){
 			int dado = aux2->valor;
 			aux2->valor = aux1->valor;
 			aux1->valor = dado;
 			break;
 		}
 		aux2 = aux2->prox;
+		i++;
 	}	
 }
 
