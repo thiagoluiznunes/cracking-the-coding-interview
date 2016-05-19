@@ -3,6 +3,13 @@ package crackcodinginterview;
 import java.util.ArrayList;
 
 /**
+ *[google]
+ *Find longest substring with "m" unique characters in a given string.
+ *input: aabacbeabbed 
+ *output: 
+ *4 (aaba) for 2 unique characters 
+ *6 (aabacb) for 3 unique characters
+ *
  *
  * @author Thiago Luiz
  */
