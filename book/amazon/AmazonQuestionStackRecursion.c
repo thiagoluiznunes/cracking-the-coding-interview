@@ -9,7 +9,6 @@ additional stack, i.e., doing in place reversal
 #include "Stack.h"
 
 void reverseStack(tStack *stack, tNode *node, int size){
-	
 	int x = size;
 	
 	if(size == 1){
@@ -22,8 +21,6 @@ void reverseStack(tStack *stack, tNode *node, int size){
 	
 	reverseStack(stack, aux, size);
 	aux->before = node;
-	
-	
 }
 
 int main(void){

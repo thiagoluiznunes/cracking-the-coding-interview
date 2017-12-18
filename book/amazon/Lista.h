@@ -1,4 +1,3 @@
-
 typedef struct no{
 	int valor;
 	struct no *prox;
@@ -13,8 +12,6 @@ void createList(tLista *lista){
 	lista->cabeca = NULL;
 	lista->tamanho = 0;
 }
-
-
 int voidList(tLista lista){
 	if(lista.tamanho == 0){
 		return 1;
@@ -23,7 +20,6 @@ int voidList(tLista lista){
 		return 0;
 	}
 }
-
 int getElement(tLista lista, int position, int *valor){
 	tNo *node = lista.cabeca;
 	int n = 1;
@@ -39,8 +35,6 @@ int getElement(tLista lista, int position, int *valor){
 	*valor = node->valor;
 	return 1;
 }
-
-
 int insertVoidList(tLista *lista, int valor){
 	tNo *newNode;
 	newNode = malloc(sizeof(tNo));
@@ -55,7 +49,6 @@ int insertVoidList(tLista *lista, int valor){
 	
 	return 1;
 }
-
 int insertBeginList(tLista *lista, int valor){
 	//printf("Dentro beginlist");
 	tNo *newNode;
@@ -71,7 +64,6 @@ int insertBeginList(tLista *lista, int valor){
 	
 	return 1;
 }
-
 int insertEndList(tLista *lista, int valor){
 	//printf("Opa\n");
 	tNo *newNode;
@@ -91,7 +83,6 @@ int insertEndList(tLista *lista, int valor){
 	
 	return 1;
 }
-
 int insertMidList(tLista *lista, int position, int valor){
 	//printf("Hello\n");
 	tNo *newNode; 
@@ -115,7 +106,6 @@ int insertMidList(tLista *lista, int position, int valor){
 	
 	return 1;
 }
-
 int insertElement(tLista *lista, int position, int valor){
 
 	tNo *newNode;
@@ -141,8 +131,6 @@ int insertElement(tLista *lista, int position, int valor){
 		return aux;
 	}
 }
-
-
 void changePosition(tLista *lista, int position){
 	tNo *aux1 = lista->cabeca;
 	tNo *aux2;
@@ -167,7 +155,6 @@ void changePosition(tLista *lista, int position){
 		i++;
 	}	
 }
-
 void printList(tLista *lista){
 	tNo *aux = lista->cabeca;
 	int i;

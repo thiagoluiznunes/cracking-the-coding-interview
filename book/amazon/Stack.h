@@ -14,9 +14,7 @@ void creatStack (tStack *stack) {
 	stack->top = NULL;
 	stack->size = 0;
 }
-
 int pushStack (tStack *stack, char value) {
-
 	tNode *aux = malloc(sizeof(tNode));
 
 	if(aux != NULL){
@@ -38,7 +36,6 @@ int pushStack (tStack *stack, char value) {
 		return 0;
 	}
 }
-
 int popStack (tStack *stack) {
 
 	if(stack->size == 0){
@@ -60,9 +57,7 @@ int popStack (tStack *stack) {
 		}
 	}
 }
-
 void printStack(tStack *stack){
-
 	tNode *aux = stack->top;
 	int x = 0;
 
@@ -77,4 +72,3 @@ void printStack(tStack *stack){
 	}
 	printf("\n");
 }
-

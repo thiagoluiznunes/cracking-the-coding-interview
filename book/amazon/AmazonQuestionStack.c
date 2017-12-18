@@ -1,16 +1,18 @@
-/*Ex1: [Amazon] Give an algorithm that finds 
-duplicated parenthesis in an expression:
-((a + b) + ((c + d)))*/
+/**
+ * Ex1: [Amazon] Give an algorithm that finds 
+ * duplicated parenthesis in an expression:
+ * ((a + b) + ((c + d)))
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Stack.h"
-
 
 int main(void){
 
 	int i, x;
 	char array[] = {'(','(','a','+','b',')','+','(','(',
-					'c','+','d',')',')',')'};
+                    'c','+','d',')',')',')'};
 
 	size_t tam = sizeof(array) / sizeof(array[0]);
 
@@ -36,8 +38,6 @@ int main(void){
 
 	printStack(&stack);
 
-
 	system("pause");
-
 	return 0;
 }
