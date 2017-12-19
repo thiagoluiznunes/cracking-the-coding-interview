@@ -22,7 +22,7 @@
 #include <unordered_map>
 
 int number_needed(std::string first, std::string second) {
-	int count = 0;
+    int count = 0;
     std::map<char, int> f_map, s_map;
 
     for (int i = 0; i < first.length(); i++) {
@@ -39,12 +39,10 @@ int number_needed(std::string first, std::string second) {
     	it = s_map.find(first.at(i));
 
     	if (it != s_map.end()) {
-    		// std::cout << "Contains" << '\n';
     		std::cout << it->first;
     	} else {
     		char aux = first.at(i);
     		f_map.erase(aux);
-    		// std::cout << "Removed: " << aux << '\n';
     		count++;
     	}
     }
@@ -53,15 +51,14 @@ int number_needed(std::string first, std::string second) {
     	it = f_map.find(second.at(i));
 
     	if (it != f_map.end()) {
-    		// std::cout << "Contains" << '\n';
     		std::cout << it->first;
     	} else {
     		char aux = second.at(i);
     		f_map.erase(aux);
-    		// std::cout << "Removed: " << aux << '\n';
     		count++;
     	}
     }
+
     std::cout << '\n';
     return count;
 }
@@ -73,5 +70,5 @@ int main(){
     std::cin >> second;
     std::cout << number_needed(first, second) << std::endl;
 
-	return 0;
+    return 0;
 }
