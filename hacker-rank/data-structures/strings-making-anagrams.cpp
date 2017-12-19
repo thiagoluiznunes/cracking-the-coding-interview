@@ -39,11 +39,9 @@ int number_needed(std::string first, std::string second) {
     	it = s_map.find(first.at(i));
 
     	if (it != s_map.end()) {
-    		// std::cout << it->first;
     	} else {
     		char aux = first.at(i);
     		f_map.erase(aux);
-    		count++;
     	}
     }
     std::cout << '\n';
@@ -51,11 +49,9 @@ int number_needed(std::string first, std::string second) {
     	it = f_map.find(second.at(i));
 
     	if (it != f_map.end()) {
-    		// std::cout << it->first;
     	} else {
     		char aux = second.at(i);
     		s_map.erase(aux);
-    		count++;
     	}
     }
 
@@ -68,10 +64,10 @@ int number_needed(std::string first, std::string second) {
     }
 
     std::cout << '\n';
-    std::cout << f_map.size() << '\n';
-    std::cout << s_map.size() << '\n'; 
-    std::cout << '\n';
-    return count;
+    int f_sum = first.length() - f_map.size();
+    int s_sum = second.length() - s_map.size();
+
+    return f_sum + s_sum;
 }
 
 int main(){
