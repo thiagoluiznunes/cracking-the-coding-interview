@@ -25,6 +25,7 @@ int number_needed(std::string first, std::string second) {
     int count = 0;
     std::map<char, int> f_map, s_map;
     std::map<char,int>::iterator it;
+    std::map<char,int>::iterator it2;
 
     for (int i = 0; i < first.length(); i++) {
         char c = first.at(i);
@@ -46,62 +47,33 @@ int number_needed(std::string first, std::string second) {
             s_map.insert( std::pair<char, int>(c, 1));
         }
     }
-
     for (int i = 0; i < first.length(); i++) {
         char aux = first.at(i);
         it = s_map.find(aux);
+        it2 = f_map.find(aux);
 
-        if (it != s_map.end()) {
-            
-        } else {
+        if (it == s_map.end()) {
             it = f_map.find(aux);
             count += it->second;
-            // std::cout << "Erase first map : " << aux << std::endl;
             f_map.erase(aux);
-            // count++;
-        }
+        } 
     }
     for (int i = 0; i < second.length(); i++) {
         char aux = second.at(i);
         it = f_map.find(aux);
+        it2 = s_map.find(aux);
 
-        if (it != f_map.end()) {
-        } else {
+        if (it == f_map.end()) {
             it = s_map.find(aux);
             count += it->second;
-            // std::cout << "Erase second map : " << aux << std::endl;
             s_map.erase(aux);
-            // count++;
         }
     }
-std::cout << std::endl;
-for(auto it = f_map.cbegin(); it != f_map.cend(); ++it)
-{
-    std::cout << it->first << " " << it->second << "\n";
-}
-std::cout << std::endl;
-for(auto it = s_map.cbegin(); it != s_map.cend(); ++it)
-{
-    std::cout << it->first << " " << it->second << "\n";
-}
-    // int f_sum = first.length() - f_map.size();
-    // int s_sum = second.length() - s_map.size();
-std::cout << std::endl;
-
-// std::map<char, int> teste;
-// teste.insert( std::pair<char, int>('a', 1));
-// teste.insert( std::pair<char, int>('a', 2));
-// teste.insert( std::pair<char, int>('b', 1));
-// teste.insert( std::pair<char, int>('b', 1));
-// std::cout << "Size teste map: " << teste.size() << std::endl;
-
-// for(auto it = teste.cbegin(); it != teste.cend(); ++it)
-// {
-//     std::cout << it->first << " " << it->second << "\n";
-// }
-
+    for(auto it = f_map.cbegin(); it != f_map.cend(); it++) {
+        it2 = s_map.find(it->first);
+        count += abs(it->second - it2->second);
+    }
     return count;
-    // return f_sum + s_sum;
 }
 
 int main(){
